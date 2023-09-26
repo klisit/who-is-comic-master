@@ -13,7 +13,13 @@ export class AnalysisController {
 
   @Get('/parse/html')
   async parseHtml(@Query('url') url: string) {
-    const data = await this.analysisService.parseHtml(url);
+    const data = await this.analysisService.carete(url);
+    return data;
+  }
+
+  @Get('/parse')
+  async getHtml(@Query('url') url: string) {
+    const data = await this.analysisService.findOne(url);
     return data;
   }
 }

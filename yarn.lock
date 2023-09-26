@@ -247,7 +247,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-validator-identifier@npm:^7.22.19":
+"@babel/helper-validator-identifier@npm:^7.22.20":
   version: 7.22.20
   resolution: "@babel/helper-validator-identifier@npm:7.22.20"
   checksum: 7eb30962ba37b25098b35572f0d27eb600355195922b5cfbc3ae6b3451320754770add9f871a9c8358f169e01e84082eb66e6d94e71660a63beeacefe46f8f6d
@@ -503,13 +503,13 @@ __metadata:
   linkType: hard
 
 "@babel/types@npm:^7.8.3":
-  version: 7.22.19
-  resolution: "@babel/types@npm:7.22.19"
+  version: 7.23.0
+  resolution: "@babel/types@npm:7.23.0"
   dependencies:
     "@babel/helper-string-parser": "npm:^7.22.5"
-    "@babel/helper-validator-identifier": "npm:^7.22.19"
+    "@babel/helper-validator-identifier": "npm:^7.22.20"
     to-fast-properties: "npm:^2.0.0"
-  checksum: 443e669c507d47ac4854c32454087b07957c200b95ec6230935f53192b4a2c7d005a92ae65b4678d376c0f4add9dc0b0b4665845b8c598dd76c85b5f97aed211
+  checksum: 707d32fdeb1dc4f9f1d1f659f7c01e99c656d2de4f47f6b4449f43dadb473e872510f8fcb7581565ecf69d46e0609b32143ffc99491015078dd623ed7b9c8f59
   languageName: node
   linkType: hard
 
@@ -1142,6 +1142,28 @@ __metadata:
   peerDependencies:
     typescript: ">=4.8.2"
   checksum: cd64dafe4dc3b0b29a84bdbe250e8f1d9f4ad5f0293f6a5ca7123ebdcd7f8e25aa2e65a075c00b83abcb75e60df5d9f95aaa20f42f65f07241372c41d1cab4b3
+  languageName: node
+  linkType: hard
+
+"@nestjs/serve-static@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@nestjs/serve-static@npm:4.0.0"
+  dependencies:
+    path-to-regexp: "npm:0.2.5"
+  peerDependencies:
+    "@fastify/static": ^6.5.0
+    "@nestjs/common": ^9.0.0 || ^10.0.0
+    "@nestjs/core": ^9.0.0 || ^10.0.0
+    express: ^4.18.1
+    fastify: ^4.7.0
+  peerDependenciesMeta:
+    "@fastify/static":
+      optional: true
+    express:
+      optional: true
+    fastify:
+      optional: true
+  checksum: a8c1d65b33acc530c683a8131b4ac21bf7d0160f5e4bb49493aa6fc18f229040fe1d4b69da2e6ed59ec4d5ba460036b86f123ece862f21e3c1e3047273be5a40
   languageName: node
   linkType: hard
 
@@ -4958,15 +4980,15 @@ __metadata:
   linkType: hard
 
 "jackspeak@npm:^2.0.3":
-  version: 2.3.3
-  resolution: "jackspeak@npm:2.3.3"
+  version: 2.3.5
+  resolution: "jackspeak@npm:2.3.5"
   dependencies:
     "@isaacs/cliui": "npm:^8.0.2"
     "@pkgjs/parseargs": "npm:^0.11.0"
   dependenciesMeta:
     "@pkgjs/parseargs":
       optional: true
-  checksum: 81258bf800ee0491c117365e41773b088210bc570bea5b0c6314862ef0bac66cc964476532eafb17b9028b660c5bb6baa1c3e90042ecf2967bb6639f136cfd35
+  checksum: 7e0ceb054bda0e7e9aaaf1cfe41f69f4171bf3e065f8b35cb1c7fbd82e4ade5b3e9b08a06cffbcc14a29d0003cf445e3075fe8324b8ac9b7c5899e24a439cd77
   languageName: node
   linkType: hard
 
@@ -6191,6 +6213,7 @@ __metadata:
     "@nestjs/passport": "npm:^10.0.0"
     "@nestjs/platform-express": "npm:^10.0.0"
     "@nestjs/schematics": "npm:^10.0.0"
+    "@nestjs/serve-static": "npm:^4.0.0"
     "@nestjs/swagger": "npm:^7.1.12"
     "@nestjs/testing": "npm:^10.0.0"
     "@nestjs/typeorm": "npm:^10.0.0"
@@ -6701,6 +6724,13 @@ __metadata:
   version: 0.1.7
   resolution: "path-to-regexp@npm:0.1.7"
   checksum: 65caab5a929dda7ae7f6ab3be871a82390317291271694dea898eea5fdcc232ae7fd197a76a3cda4bd6dcef8d82e582578e02eb7d5fa659df0f4d33a53c9753f
+  languageName: node
+  linkType: hard
+
+"path-to-regexp@npm:0.2.5":
+  version: 0.2.5
+  resolution: "path-to-regexp@npm:0.2.5"
+  checksum: 22552530391e257d809c0ee1391c047e33ca7605ba24fc1bf0992da5380edfb93819a3f6a3551e55c37236612458efe63ada600a7fd17e7aaa2d3932467f41bb
   languageName: node
   linkType: hard
 

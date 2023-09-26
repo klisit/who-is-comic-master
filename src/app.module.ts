@@ -1,14 +1,17 @@
+import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { UserModule } from './user/user.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as dotenv from 'dotenv';
 import * as Joi from 'joi';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { ServeStaticModule } from '@nestjs/serve-static';
 import { ConfigEnum } from './enum/config.enum';
 import { User } from './user/user.entity';
 import { Profile } from './user/profile.entity';
 import { Roles } from './roles/roles.entity';
 import { Logs } from './logs/logs.entity';
+import { Anime } from './analysis/anime.entitiy';
 import { AuthModule } from './auth/auth.module';
 import { LogsModule } from './logs/logs.module';
 import { RolesModule } from './roles/roles.module';
@@ -46,7 +49,7 @@ const envFilePath = `.env.${process.env.NODE_ENV || `development`}`;
           username: configService.get(ConfigEnum.DB_USERNAME),
           password: configService.get(ConfigEnum.DB_PASSWORD),
           database: configService.get(ConfigEnum.DB_DATABASE),
-          entities: [User, Profile, Logs, Roles],
+          entities: [User, Profile, Logs, Roles, Anime],
           // 同步本地的schema与数据库 -> 初始化的时候去使用
           synchronize: configService.get(ConfigEnum.DB_SYNC),
           logging: process.env.NODE_ENV === 'development',
@@ -63,6 +66,9 @@ const envFilePath = `.env.${process.env.NODE_ENV || `development`}`;
     //   synchronize: true,
     //   logging: ['error'],
     // }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, 'public'),
+    }),
     UserModule,
     LogsModule,
     RolesModule,
