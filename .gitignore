@@ -6,6 +6,7 @@ tmp/
 temp/
 dist/
 /.yarn
+/public/*
 # General
 .DS_Store
 .AppleDouble

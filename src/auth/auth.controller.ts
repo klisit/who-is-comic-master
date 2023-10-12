@@ -2,6 +2,7 @@ import { Body, Controller, Post, UseFilters } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { TypeormFilter } from 'src/filters/typeorm.filter';
 import { SigninUserDto } from './dto/signin-user.dto';
+import { SignUpUserDto } from './dto/signup-user.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('auth')
@@ -22,7 +23,7 @@ export class AuthController {
   }
 
   @Post('/signup')
-  signup(@Body() dto: SigninUserDto) {
+  signup(@Body() dto: SignUpUserDto) {
     const { username, password } = dto;
     return this.authService.signup(username, password);
   }

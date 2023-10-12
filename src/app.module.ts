@@ -67,7 +67,7 @@ const envFilePath = `.env.${process.env.NODE_ENV || `development`}`;
     //   logging: ['error'],
     // }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, 'public'),
+      rootPath: join(__dirname, '../public'),
     }),
     UserModule,
     LogsModule,

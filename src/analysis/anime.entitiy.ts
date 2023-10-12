@@ -20,8 +20,8 @@ export class Anime {
   @Column() //番剧分类
   cate: string;
 
-  @Column() //番剧封面
-  cover: string;
+  @Column({ default: null }) //番剧封面
+  cover: string | null;
 
   @Column() //番剧官网预告
   official: string;

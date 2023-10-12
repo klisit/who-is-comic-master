@@ -4,6 +4,7 @@ import { AnalysisController } from './analysis.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LoggerModule } from 'nestjs-pino';
 import { Anime } from './anime.entitiy';
+import { UserModule } from 'src/user/user.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { Anime } from './anime.entitiy';
         },
       },
     }),
+    UserModule,
   ],
   providers: [AnalysisService],
   controllers: [AnalysisController],
