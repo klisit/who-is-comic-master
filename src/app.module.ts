@@ -12,10 +12,12 @@ import { Profile } from './user/profile.entity';
 import { Roles } from './roles/roles.entity';
 import { Logs } from './logs/logs.entity';
 import { Anime } from './analysis/anime.entitiy';
+import { Score } from './score/score.entitiy';
 import { AuthModule } from './auth/auth.module';
 import { LogsModule } from './logs/logs.module';
 import { RolesModule } from './roles/roles.module';
 import { AnalysisModule } from './analysis/analysis.module';
+import { ScoreModule } from './score/score.module';
 
 const envFilePath = `.env.${process.env.NODE_ENV || `development`}`;
 
@@ -49,7 +51,7 @@ const envFilePath = `.env.${process.env.NODE_ENV || `development`}`;
           username: configService.get(ConfigEnum.DB_USERNAME),
           password: configService.get(ConfigEnum.DB_PASSWORD),
           database: configService.get(ConfigEnum.DB_DATABASE),
-          entities: [User, Profile, Logs, Roles, Anime],
+          entities: [User, Profile, Logs, Roles, Anime, Score],
           // 同步本地的schema与数据库 -> 初始化的时候去使用
           synchronize: configService.get(ConfigEnum.DB_SYNC),
           logging: process.env.NODE_ENV === 'development',
@@ -74,6 +76,7 @@ const envFilePath = `.env.${process.env.NODE_ENV || `development`}`;
     RolesModule,
     AuthModule,
     AnalysisModule,
+    ScoreModule,
   ],
   controllers: [],
   providers: [],

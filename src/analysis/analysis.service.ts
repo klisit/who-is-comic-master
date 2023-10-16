@@ -124,31 +124,32 @@ export class AnalysisService {
     const imgTaskList = [];
     htmlCtx('img[width="180px"]').each((index, el) => {
       const url = htmlCtx(el).attr('src');
-      // const filename = url.split('/').pop();
-      // const output = join(__dirname, '../../public', filename);
+      const filename = url.split('/').pop();
+      const output = join(__dirname, '../../public', filename);
       // 不要学这样写，纯垃圾代码
       imgTaskList.push(
         new Promise(async (resolve, reject) => {
           let shortUrl = '';
-          const catboxCtx = new Catbox.Catbox();
-          shortUrl = await catboxCtx.upload(url);
-          debugger;
-          // const res = await axios({
-          //   method: 'get',
-          //   url,
-          //   responseType: 'arraybuffer',
-          // });
-          // writeFile(output, res.data, 'binary', (err) => {
-          //   if (err) {
-          //     reject(err);
-          //     console.log(`${index} error`, err);
-          //   }
-          // });
-          // htmlList[index].cover = `http://127.0.0.1:4396/${filename}`;
-          // resolve(`http://127.0.0.1:4396/${filename}`);
-
-          htmlList[index].cover = shortUrl;
-          resolve(shortUrl);
+          if (process.env.NODE_ENV == 'development') {
+            const res = await axios({
+              method: 'get',
+              url,
+              responseType: 'arraybuffer',
+            });
+            writeFile(output, res.data, 'binary', (err) => {
+              if (err) {
+                reject(err);
+                console.log(`${index} error`, err);
+              }
+            });
+            htmlList[index].cover = `http://127.0.0.1:4396/${filename}`;
+            resolve(`http://127.0.0.1:4396/${filename}`);
+          } else {
+            const catboxCtx = new Catbox.Catbox();
+            shortUrl = await catboxCtx.upload(url);
+            htmlList[index].cover = shortUrl;
+            resolve(shortUrl);
+          }
         }),
       );
     });

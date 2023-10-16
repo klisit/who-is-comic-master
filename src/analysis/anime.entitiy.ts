@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Score } from 'src/score/score.entitiy';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Anime {
@@ -40,4 +41,7 @@ export class Anime {
 
   @Column({ type: 'text' }) //声优
   cv: string;
+
+  @OneToOne(() => Score, (score) => score.anime, { cascade: true })
+  score: Score;
 }
